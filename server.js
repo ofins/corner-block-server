@@ -32,6 +32,7 @@ async function handleApiError(requestFn, res, ...params) {
     console.log(response);
     res.json(response.data);
   } catch (error) {
+    console.error(error)
     res.status(500).json({ error: "Internal Server Error" });
   }
 }

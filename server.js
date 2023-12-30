@@ -1,5 +1,7 @@
 import express from "express";
 import { fetchData } from "./index.js";
+import 'dotenv/config'
+
 import {
   SERVER_BASE_ENDPOINT,
   SERVER_ENDPOINTS,
@@ -10,8 +12,7 @@ import {
 const app = express();
 const PORT = process.env.PORT || 3000;
 const DEMO_10K_API_KEY = process.env.DEMO_10K_API_KEY;
-// const DEMO_10K_API_KEY = "CG-Ss9UawjweBDXeWyuJXUcSHu3";
-
+console.log(DEMO_10K_API_KEY)
 // Build the Coingecko API URL with the provided endpoints and parameters
 function buildUrl(endpoints, params = {}) {
   const paramString = new URLSearchParams(params);

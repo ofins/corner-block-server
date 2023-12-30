@@ -16,7 +16,8 @@ export const fetchData = async (url) => {
     if (!contentType || !contentType.includes("application/json")) {
       throw new Error("Response is not in JSON format");
     }
-    const data = await response.json();
+    console.log(response.data)
+    const data = await response.data;
     return { status: response.status, data };
   } catch (error) {
     throw new Error(`Error in fetchData: ${error.message}`);

@@ -1,19 +1,20 @@
-import fetch from "node-fetch";
+// import fetch from "node-fetch";
+import axios from "axios";
 
 export const fetchData = async (url) => {
   console.log("url in fetchData:", url);
   try {
-    const response = await fetch(url, {
-        method:'GET',
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type':'application/json'
-        }
+    const response = await axios.get(url, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     });
 
-    const contentType = response.headers.get('Content-Type');
-    if(!contentType || !contentType.includes('application/json')) {
-        throw new Error('Response is not in JSON format')
+    const contentType = response.headers.get("Content-Type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Response is not in JSON format");
     }
     const data = await response.json();
     return { status: response.status, data };

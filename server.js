@@ -9,8 +9,8 @@ import {
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-// const DEMO_10K_API_KEY = process.env.DEMO_10K_API_KEY;
-const DEMO_10K_API_KEY = "CG-Ss9UawjweBDXeWyuJXUcSHu3";
+const DEMO_10K_API_KEY = process.env.DEMO_10K_API_KEY;
+// const DEMO_10K_API_KEY = "CG-Ss9UawjweBDXeWyuJXUcSHu3";
 
 // Build the Coingecko API URL with the provided endpoints and parameters
 function buildUrl(endpoints, params = {}) {

@@ -25,7 +25,6 @@ function buildUrl(endpoints, params = {}) {
 
 async function handleApiError(requestFn, res, ...params) {
   console.log("running");
-  console.log(requestFn, res, ...params)
   try {
     console.log('1')
     const response = await requestFn(...params);

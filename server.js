@@ -19,8 +19,10 @@ function buildUrl(endpoints, params = {}) {
 }
 
 async function handleApiError(requestFn, res, ...params) {
-  try {
-    const response = await requestFn(...params);
+  console.log('running')
+    try {
+      const response = await requestFn(...params);
+      console.log(response)
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });

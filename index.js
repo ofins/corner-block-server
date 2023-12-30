@@ -10,9 +10,12 @@ export const fetchData = async (url) => {
             'Content-Type':'application/json'
         }
     });
-    console.log('response', response)
+
+    const contentType = response.headers.get('Content-Type');
+    if(!contentType || !contentType.includes('application/json')) {
+        throw new Error('Response is not in JSON format')
+    }
     const data = await response.json();
-    console.log('data', data)
     return { status: response.status, data };
   } catch (error) {
     throw new Error(`Error in fetchData: ${error.message}`);

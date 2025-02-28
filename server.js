@@ -1,7 +1,7 @@
 import express from "express";
 import { fetchData } from "./index.js";
 import "dotenv/config";
-import cors from 'cors'
+import cors from "cors";
 
 import {
   SERVER_BASE_ENDPOINT,
@@ -16,7 +16,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 const DEMO_10K_API_KEY = process.env.DEMO_10K_API_KEY;
-console.log(DEMO_10K_API_KEY);
+
 // Build the Coingecko API URL with the provided endpoints and parameters
 function buildUrl(endpoints, params = {}) {
   const paramString = new URLSearchParams(params);
@@ -24,14 +24,11 @@ function buildUrl(endpoints, params = {}) {
 }
 
 async function handleApiError(requestFn, res, ...params) {
-  console.log("running");
   try {
-    console.log('1')
     const response = await requestFn(...params);
-    console.log(response);
     res.json(response.data);
   } catch (error) {
-    console.error(error)
+    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
